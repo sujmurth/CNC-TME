@@ -1,0 +1,37 @@
+
+<config xmlns="http://tail-f.com/ns/config/1.0">
+  <vpn xmlns="http://com/example/l3vpn">
+    <l3vpn>
+      <name>volvo</name>
+      <route-distinguisher>999</route-distinguisher>
+      <vrf-export-policy>SET_COLORv4_VPN-101-ROUTE-POLICY</vrf-export-policy>
+      <endpoint>
+        <id>branch-office1</id>
+        <ce-device>cpe-2.cisco.com</ce-device>
+        <pe-device>Node-4</pe-device>
+        <ce-interface>GigabitEthernet0</ce-interface>
+        <ip-network>20.1.2.0/24</ip-network>
+        <bandwidth>600000</bandwidth>
+        <as-number>65003</as-number>
+      </endpoint>
+      <endpoint>
+        <id>branch-office2</id>
+        <ce-device>Node-2</ce-device>
+        <pe-device>Node-3</pe-device>
+        <ce-interface>GigabitEthernet0/6</ce-interface>
+        <ip-network>20.1.3.0/24</ip-network>
+        <bandwidth>750000</bandwidth>
+        <as-number>65000</as-number>
+      </endpoint>
+      <endpoint>
+        <id>main-office</id>
+        <ce-device>cpe-1.cisco.com</ce-device>
+        <pe-device>Node-5</pe-device>
+        <ce-interface>GigabitEthernet0</ce-interface>
+        <ip-network>20.1.1.0/24</ip-network>
+        <bandwidth>1200001</bandwidth>
+        <as-number>65003</as-number>
+      </endpoint>
+    </l3vpn>
+  </vpn>
+</config>

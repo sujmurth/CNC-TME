@@ -1,0 +1,43 @@
+<config xmlns="http://tail-f.com/ns/config/1.0">
+  <external-plan xmlns="http://example.com/external-plan">
+    <plan-outline>
+      <service-path>/l3vpn:vpn/l3vpn:l3vpn</service-path>
+      <service-keys>name</service-keys>
+      <plan-path>/l3vpn:vpn/l3vpn:l3vpn-plan</plan-path>
+      <component>
+        <type xmlns:ncs="http://tail-f.com/ns/ncs">ncs:self</type>
+        <name>self</name>
+        <state>
+          <type xmlns:ncs="http://tail-f.com/ns/ncs">ncs:init</type>
+        </state>
+        <state>
+          <type xmlns:ncs="http://tail-f.com/ns/ncs">ncs:ready</type>
+        </state>
+      </component>
+      <component>
+        <type xmlns:l3vpn="http://com/example/l3vpn">l3vpn:l3vpn-endpoint-ce</type>
+        <depends-on>
+          <path>l3vpn:endpoint/l3vpn:ce-device</path>
+        </depends-on>
+        <state>
+          <type xmlns:ncs="http://tail-f.com/ns/ncs">ncs:init</type>
+        </state>
+        <state>
+          <type xmlns:ncs="http://tail-f.com/ns/ncs">ncs:ready</type>
+        </state>
+      </component>
+      <component>
+        <type xmlns:l3vpn="http://com/example/l3vpn">l3vpn:l3vpn-endpoint-pe</type>
+        <depends-on>
+          <path>l3vpn:endpoint/l3vpn:pe-device</path>
+        </depends-on>
+        <state>
+          <type xmlns:ncs="http://tail-f.com/ns/ncs">ncs:init</type>
+        </state>
+        <state>
+          <type xmlns:ncs="http://tail-f.com/ns/ncs">ncs:ready</type>
+        </state>
+      </component>
+    </plan-outline>
+  </external-plan>
+</config>
